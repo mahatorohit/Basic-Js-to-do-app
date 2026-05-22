@@ -18,13 +18,20 @@ let list = document.getElementById("list")
 //     console.log(e.key)
 // })
 
-input.addEventListener("keydown",function(e){
+input.addEventListener("keydown", function(e){
     if(e.key === "Enter"){
-        // list.innerHTML = list.innerHTML + input.value
+
         let newlist = document.createElement("li")
-        newlist.innerHTML = input.value
+        let a = input.value
+        localStorage.setItem(a, a)
+        let b = localStorage.getItem(a)
+       
+        console.log(b)
+        newlist.innerHTML = b
         list.append(newlist)
+
         input.value = ""
+
     }
 })
 // let taskk = document.getElementById("taskk")
