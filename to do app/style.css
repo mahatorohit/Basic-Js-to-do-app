@@ -44,7 +44,18 @@ li{
     color: #3f2607;
     font-weight: bolder;
     text-shadow: 1px 2px 4px black;
+    position: relative;
+    margin: 20px 10px;
+    
 }
 .midlinetext{
     text-decoration: line-through;
+}
+
+#list img{
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    width: 20px;
 }
