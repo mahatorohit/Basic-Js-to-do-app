@@ -1,5 +1,6 @@
 let input = document.getElementById("inputlist")
 let list = document.getElementById("list")
+
 // let list = listt.firstElementChild
 // console.log(list.textContent)
 // let newtodo = document.createElement("li")
@@ -18,22 +19,49 @@ let list = document.getElementById("list")
 //     console.log(e.key)
 // })
 
+// input.addEventListener("keydown",function(e){
+//     if(e.key === "Enter"){
+//         // list.innerHTML = list.innerHTML + input.value
+//         let newlist = document.createElement("li")
+//         newlist.innerHTML = input.value
+//         list.append(newlist)
+//         input.value = ""
+//     }
+// })
+
 input.addEventListener("keydown", function(e){
     if(e.key === "Enter"){
-
+        // list.innerHTML = list.innerHTML + input.value
         let newlist = document.createElement("li")
+        let dltbtn = document.createElement("img")
+        dltbtn.src = "img/delete-svgrepo-com.svg"
+
         let a = input.value
         localStorage.setItem(a, a)
         let b = localStorage.getItem(a)
        
-        console.log(b)
         newlist.innerHTML = b
         list.append(newlist)
+        newlist.append(dltbtn)
 
         input.value = ""
 
     }
 })
+
+list.addEventListener('click', (e)=>{
+    if(e.target.tagName === "IMG"){
+        
+        let a = e.target.parentElement.innerText
+        console.log(a)
+        localStorage.removeItem(a)
+        let target = e.target.parentElement
+        target.remove()
+    }
+    
+})
+
+
 // let taskk = document.getElementById("taskk")
 // console.log(task[2])
 
@@ -42,8 +70,11 @@ input.addEventListener("keydown", function(e){
 list.addEventListener('click',(e)=>{
     if(e.target.tagName==="LI"){
         e.target.classList.toggle("midlinetext")
+        // console.log(e.target.innerHTML)
     }
 })
+
+
 
 // task.addEventListener("click", ()=>{
 //     task.classList.add('midline')
@@ -55,3 +86,14 @@ list.addEventListener('click',(e)=>{
 
 
 // list.innerHTML = list.innerHTML +" <li>rhfuiah</li>"
+
+
+// -----all dlt button----------
+
+let alldlt = document.getElementById("aldlt")
+console.log(alldlt)
+
+alldlt.addEventListener('click', ()=>{
+    localStorage.clear()
+  list.innerHTML = ""
+})
