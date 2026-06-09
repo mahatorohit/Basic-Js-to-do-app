@@ -20,6 +20,7 @@ h3{
     border: 2px solid black;
     border-radius: 20px;
     margin-top: 20px;
+    position: relative;
 }
 #inputlist{
 display: block;
@@ -37,6 +38,8 @@ display: block;
 }
 .todolist{
     margin: 10px;
+    max-height: 60%;
+    overflow-y: scroll;
 }
 li{
      list-style-position: inside;
@@ -44,7 +47,31 @@ li{
     color: #3f2607;
     font-weight: bolder;
     text-shadow: 1px 2px 4px black;
+    position: relative;
+    margin: 20px 10px;
+    
 }
 .midlinetext{
     text-decoration: line-through;
+}
+
+#list img{
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    width: 20px;
+}
+.alldlt{
+    width: 35px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 5px;
+    transition: transform 0.3s ease;
+}
+.alldlt:hover{
+   transform: scale(1.1) translateX(-50%);
+cursor: pointer;
 }
