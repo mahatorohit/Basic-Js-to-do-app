@@ -29,12 +29,15 @@ let list = document.getElementById("list")
 //     }
 // })
 
+
+
+
 input.addEventListener("keydown", function(e){
     if(e.key === "Enter"){
         // list.innerHTML = list.innerHTML + input.value
         let newlist = document.createElement("li")
         let dltbtn = document.createElement("img")
-        dltbtn.src = "delete-svgrepo-com.svg"
+        dltbtn.src = "img/delete-svgrepo-com.svg"
 
         let a = input.value
         localStorage.setItem(a, a)
@@ -48,6 +51,8 @@ input.addEventListener("keydown", function(e){
 
     }
 })
+
+
 
 list.addEventListener('click', (e)=>{
     if(e.target.tagName === "IMG"){
@@ -74,6 +79,8 @@ list.addEventListener('click',(e)=>{
     }
 })
 
+
+
 // task.addEventListener("click", ()=>{
 //     task.classList.add('midline')
 // })
@@ -84,3 +91,17 @@ list.addEventListener('click',(e)=>{
 
 
 // list.innerHTML = list.innerHTML +" <li>rhfuiah</li>"
+
+
+// -----all dlt button----------
+
+let alldlt = document.getElementById("aldlt")
+console.log(alldlt)
+
+alldlt.addEventListener('click', ()=>{
+    let aresure = confirm("Are you sure, you want to delete all")
+    if(aresure){
+    localStorage.clear()
+  list.innerHTML = ""
+    }
+})
