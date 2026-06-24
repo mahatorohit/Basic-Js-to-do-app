@@ -100,3 +100,30 @@ cursor: pointer;
         margin: 20px 20px;
     }
 }
+.alldlt{
+    width: 35px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 5px;
+    transition: transform 0.1s ease;
+}
+.alldlt:hover{
+   transform: scale(1.1) translateX(-50%);
+cursor: pointer;
+}
+
+.todolist::-webkit-scrollbar{
+    background-color: rgb(121, 121, 121);
+    border-radius: 20px;
+}
+.todolist::-webkit-scrollbar-thumb{
+    background-color: rgb(67, 66, 66);
+    border-radius: 20px;
+}
+@media  screen and (max-width: 550px) {
+    .cont{
+        margin: 20px 20px;
+    }
+}
