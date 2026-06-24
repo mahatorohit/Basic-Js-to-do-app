@@ -10,23 +10,24 @@ h3{
     margin: 10px;
     font-family: Arial, Helvetica, sans-serif;
     color: rgba(0, 0, 0, 0.561);
-   text-shadow: 1px 2px 4px black;
+    font-weight: 900;
 }
 .cont{
     background-color: aqua;
     height: 400px;
-    width: 40%;
+    max-width: 550px;
     margin: auto;
     border: 2px solid black;
     border-radius: 20px;
     margin-top: 20px;
     position: relative;
+    box-shadow: #00000052 2px 2px 14px 4px;
 }
 #inputlist{
 display: block;
     margin: 20px auto;
-    height: 35px;
-    width: 60%;
+    height: 45px;
+    width: 85%;
     border: none;
     box-sizing: border-box;
     border-radius: 8px;
@@ -41,26 +42,36 @@ display: block;
     max-height: 60%;
     overflow-y: scroll;
 }
+/* #list{
+    counter-reset: list-counter;
+} */
+#list div{
+    display: flex;
+
+}
 li{
-     list-style-position: inside;
-    font-size: large;
+    list-style-position: inside;
     color: #3f2607;
     font-weight: bolder;
-    text-shadow: 1px 2px 4px black;
     position: relative;
+    font-family: sans-serif;
     margin: 20px 10px;
-    
+    /* display: inline-block; */
+    /* counter-increment: list-counter; */
 }
+
+
 .midlinetext{
     text-decoration: line-through;
 }
-
+input[type="checkbox"]{
+    accent-color: #000000;
+    cursor: pointer;
+}
 #list img{
-    position: absolute;
-    right: 0;
-    top: 0;
     cursor: pointer;
     width: 20px;
+    margin-left: auto;
 }
 .alldlt{
     width: 35px;
@@ -69,9 +80,23 @@ li{
     left: 50%;
     transform: translateX(-50%);
     margin: 5px;
-    transition: transform 0.3s ease;
+    transition: transform 0.1s ease;
 }
 .alldlt:hover{
    transform: scale(1.1) translateX(-50%);
 cursor: pointer;
+}
+
+.todolist::-webkit-scrollbar{
+    background-color: rgb(121, 121, 121);
+    border-radius: 20px;
+}
+.todolist::-webkit-scrollbar-thumb{
+    background-color: rgb(67, 66, 66);
+    border-radius: 20px;
+}
+@media  screen and (max-width: 550px) {
+    .cont{
+        margin: 20px 20px;
+    }
 }
