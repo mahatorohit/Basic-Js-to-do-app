@@ -35,8 +35,12 @@ let list = document.getElementById("list")
 input.addEventListener("keydown", function(e){
     if(e.key === "Enter"){
         // list.innerHTML = list.innerHTML + input.value
+        let div = document.createElement("div")
         let newlist = document.createElement("li")
         let dltbtn = document.createElement("img")
+
+        let check = document.createElement("input")
+        check.type = "checkbox"
         dltbtn.src = "img/delete-svgrepo-com.svg"
 
         let a = input.value
@@ -44,8 +48,14 @@ input.addEventListener("keydown", function(e){
         let b = localStorage.getItem(a)
        
         newlist.innerHTML = b
-        list.append(newlist)
-        newlist.append(dltbtn)
+        list.append(div)
+
+       
+        div.replaceChildren(newlist)
+        div.prepend(check)
+        
+        div.append(dltbtn)
+
 
         input.value = ""
 
@@ -76,7 +86,12 @@ list.addEventListener('click',(e)=>{
     if(e.target.tagName==="LI"){
         e.target.classList.toggle("midlinetext")
         // console.log(e.target.innerHTML)
+        let checktoggle = e.target.previousElementSibling;
+            checktoggle.checked = !checktoggle.checked;
+    }else if(e.target.tagName==="INPUT"){
+        e.target.nextElementSibling.classList.toggle("midlinetext")
     }
+    
 })
 
 

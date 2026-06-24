@@ -42,6 +42,13 @@ display: block;
     max-height: 60%;
     overflow-y: scroll;
 }
+/* #list{
+    counter-reset: list-counter;
+} */
+#list div{
+    display: flex;
+
+}
 li{
     list-style-position: inside;
     color: #3f2607;
@@ -49,19 +56,49 @@ li{
     position: relative;
     font-family: sans-serif;
     margin: 20px 10px;
-    font-size: 14px;
-    
+    /* display: inline-block; */
+    /* counter-increment: list-counter; */
 }
+
+
 .midlinetext{
     text-decoration: line-through;
 }
-
+input[type="checkbox"]{
+    accent-color: #000000;
+    cursor: pointer;
+}
 #list img{
-    position: absolute;
-    right: 0;
-    top: 0;
     cursor: pointer;
     width: 20px;
+    margin-left: auto;
+}
+.alldlt{
+    width: 35px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 5px;
+    transition: transform 0.1s ease;
+}
+.alldlt:hover{
+   transform: scale(1.1) translateX(-50%);
+cursor: pointer;
+}
+
+.todolist::-webkit-scrollbar{
+    background-color: rgb(121, 121, 121);
+    border-radius: 20px;
+}
+.todolist::-webkit-scrollbar-thumb{
+    background-color: rgb(67, 66, 66);
+    border-radius: 20px;
+}
+@media  screen and (max-width: 550px) {
+    .cont{
+        margin: 20px 20px;
+    }
 }
 .alldlt{
     width: 35px;
