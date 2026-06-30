@@ -36,12 +36,17 @@ input.addEventListener("keydown", function(e){
     if(e.key === "Enter"){
         // list.innerHTML = list.innerHTML + input.value
         let div = document.createElement("div")
+        let imgbox = document.createElement("div")
+        let textbox = document.createElement("div")
         let newlist = document.createElement("li")
         let dltbtn = document.createElement("img")
+        let edit = document.createElement("img")
 
         let check = document.createElement("input")
         check.type = "checkbox"
         dltbtn.src = "img/delete-svgrepo-com.svg"
+        edit.src = "img/edit.svg"
+        edit.style.marginRight = "15px"
 
         let a = input.value
         localStorage.setItem(a, a)
@@ -49,18 +54,20 @@ input.addEventListener("keydown", function(e){
        
         newlist.innerHTML = b
         list.append(div)
-
+        div.prepend(textbox)
+        div.append(imgbox)
        
-        div.replaceChildren(newlist)
-        div.prepend(check)
-        
-        div.append(dltbtn)
+        textbox.replaceChildren(newlist)
+        textbox.prepend(check)
+        imgbox.append(edit)
+        imgbox.append(dltbtn)
 
 
         input.value = ""
 
     }
 })
+
 
 
 
