@@ -41,6 +41,8 @@ input.addEventListener("keydown", function(e){
         let newlist = document.createElement("li")
         let dltbtn = document.createElement("img")
         let edit = document.createElement("img")
+        dltbtn.setAttribute("class", "deletebtn")
+        edit.setAttribute("class", "editbtn")
 
         let check = document.createElement("input")
         check.type = "checkbox"
@@ -72,15 +74,22 @@ input.addEventListener("keydown", function(e){
 
 
 list.addEventListener('click', (e)=>{
-    if(e.target.tagName === "IMG"){
+   
+    if(e.target.className === "deletebtn"){
         
-        let a = e.target.parentElement.innerText
+        let a = e.target.parentElement.previousElementSibling.innerText
         console.log(a)
         localStorage.removeItem(a)
-        let target = e.target.parentElement
+        let target = e.target.parentElement.parentElement
         target.remove()
     }
-    
+  
+    if(e.target.className === "editbtn"){
+        let a = e.target.parentElement.previousElementSibling.innerText
+        input.value = a
+        let target = e.target.parentElement.parentElement
+        target.remove()
+    }
 })
 
 
