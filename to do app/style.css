@@ -15,16 +15,16 @@ h3{
 .cont{
     background-color: aqua;
     height: 88vh;
-    max-width: 550px;
+    max-width: 580px;
     margin: auto;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 20px;
     margin-top: 20px;
     position: relative;
     box-shadow: #00000052 2px 2px 14px 4px;
 }
 #inputlist{
-display: block;
+    display: block;
     margin: 20px auto;
     height: 45px;
     width: 85%;
@@ -36,6 +36,10 @@ display: block;
     font-size: small;
     font-weight: 600;
     color: #000000ba;
+}
+#inputlist:focus{
+    border: 2px solid #007070;
+    outline: none;
 }
 .todolist{
     margin: 10px;
