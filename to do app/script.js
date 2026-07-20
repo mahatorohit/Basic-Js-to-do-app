@@ -32,8 +32,8 @@ let list = document.getElementById("list")
 
 
 
-input.addEventListener("keydown", function(e){
-    if(e.key === "Enter"){
+input.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
         // list.innerHTML = list.innerHTML + input.value
         let div = document.createElement("div")
         let imgbox = document.createElement("div")
@@ -53,12 +53,12 @@ input.addEventListener("keydown", function(e){
         let a = input.value
         localStorage.setItem(a, a)
         let b = localStorage.getItem(a)
-       
+
         newlist.innerHTML = b
         list.append(div)
         div.prepend(textbox)
         div.append(imgbox)
-       
+
         textbox.replaceChildren(newlist)
         textbox.prepend(check)
         imgbox.append(edit)
@@ -73,18 +73,18 @@ input.addEventListener("keydown", function(e){
 
 
 
-list.addEventListener('click', (e)=>{
-   
-    if(e.target.className === "deletebtn"){
-        
+list.addEventListener('click', (e) => {
+
+    if (e.target.className === "deletebtn") {
+
         let a = e.target.parentElement.previousElementSibling.innerText
         console.log(a)
         localStorage.removeItem(a)
         let target = e.target.parentElement.parentElement
         target.remove()
     }
-  
-    if(e.target.className === "editbtn"){
+
+    if (e.target.className === "editbtn") {
         let a = e.target.parentElement.previousElementSibling.innerText
         input.value = a
         let target = e.target.parentElement.parentElement
@@ -98,16 +98,29 @@ list.addEventListener('click', (e)=>{
 
 
 // let task = document.getElementsByTagName("li")
-list.addEventListener('click',(e)=>{
-    if(e.target.tagName==="LI"){
+list.addEventListener('click', (e) => {
+    if (e.target.tagName === "LI") {
         e.target.classList.toggle("midlinetext")
         // console.log(e.target.innerHTML)
         let checktoggle = e.target.previousElementSibling;
-            checktoggle.checked = !checktoggle.checked;
-    }else if(e.target.tagName==="INPUT"){
+        checktoggle.checked = !checktoggle.checked;
+        let a = checktoggle.checked;
+        if (a) {
+            list.firstElementChild.style.background = "#877052"
+        } else {
+            list.firstElementChild.style.background = "burlywood"
+        }
+
+    } else if (e.target.tagName === "INPUT") {
         e.target.nextElementSibling.classList.toggle("midlinetext")
+
+        let a = e.target.checked;
+        if (a) {
+            list.firstElementChild.style.background = "#877052"
+        } else {
+            list.firstElementChild.style.background = "burlywood"
+        }
     }
-    
 })
 
 
@@ -129,10 +142,10 @@ list.addEventListener('click',(e)=>{
 let alldlt = document.getElementById("aldlt")
 console.log(alldlt)
 
-alldlt.addEventListener('click', ()=>{
+alldlt.addEventListener('click', () => {
     let aresure = confirm("Are you sure, you want to delete all")
-    if(aresure){
-    localStorage.clear()
-  list.innerHTML = ""
+    if (aresure) {
+        localStorage.clear()
+        list.innerHTML = ""
     }
 })
