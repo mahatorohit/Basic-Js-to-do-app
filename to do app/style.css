@@ -52,6 +52,13 @@ h3{
 #list div{
     display: flex;
     justify-content: space-between;
+    padding: 0 5px;
+}
+#list>div{
+    margin: 4px 0;
+    margin-right: 4px;
+    background: burlywood;
+    border-radius: 5px;
 }
 li{
     list-style-position: inside;
