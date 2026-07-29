@@ -85,10 +85,16 @@ list.addEventListener('click', (e) => {
     }
 
     if (e.target.className === "editbtn") {
-        let a = e.target.parentElement.previousElementSibling.innerText
-        input.value = a
-        let target = e.target.parentElement.parentElement
-        target.remove()
+        let divt = e.target.parentElement.previousElementSibling.firstElementChild
+        let divtt = e.target.parentElement.previousElementSibling
+        let litext = divt.nextElementSibling.textContent
+       
+        let litag = divt.nextElementSibling
+        litag.textContent = ""
+        let editinput = document.createElement("input") 
+        editinput.type = "text"
+        editinput.value = litext
+        divtt.append(editinput)
     }
 })
 
