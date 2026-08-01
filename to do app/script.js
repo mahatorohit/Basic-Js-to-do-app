@@ -1,33 +1,6 @@
 let input = document.getElementById("inputlist")
 let list = document.getElementById("list")
 
-// let list = listt.firstElementChild
-// console.log(list.textContent)
-// let newtodo = document.createElement("li")
-// newtodo.innerHTML = "rohit mahato"
-// list.prepend(newtodo)
-
-
-// input.addEventListener('mouseenter',()=>{
-//     console.log(input.value)
-// })
-
-// input.addEventListener('keydown',function(e){
-//     if(e.key === "Enter"){
-//     console.log(input.value)
-//     }
-//     console.log(e.key)
-// })
-
-// input.addEventListener("keydown",function(e){
-//     if(e.key === "Enter"){
-//         // list.innerHTML = list.innerHTML + input.value
-//         let newlist = document.createElement("li")
-//         newlist.innerHTML = input.value
-//         list.append(newlist)
-//         input.value = ""
-//     }
-// })
 
 
 
@@ -74,7 +47,8 @@ input.addEventListener("keydown", function (e) {
 
 
 list.addEventListener('click', (e) => {
-
+   
+   
     if (e.target.className === "deletebtn") {
 
         let a = e.target.parentElement.previousElementSibling.innerText
@@ -84,9 +58,18 @@ list.addEventListener('click', (e) => {
         target.remove()
     }
 
+    // if (e.target.className === "editbtn") {
+    //     let a = e.target.parentElement.previousElementSibling.innerText
+    //     input.value = a
+    //     let target = e.target.parentElement.parentElement
+    //     target.remove()
+    // }
     if (e.target.className === "editbtn") {
         let divt = e.target.parentElement.previousElementSibling.firstElementChild
         let divtt = e.target.parentElement.previousElementSibling
+        if (divtt.querySelector('input[type="text"]')) {
+            return
+        }
         let litext = divt.nextElementSibling.textContent
        
         let litag = divt.nextElementSibling
@@ -94,7 +77,8 @@ list.addEventListener('click', (e) => {
         let editinput = document.createElement("input") 
         editinput.type = "text"
         editinput.value = litext
-        divtt.append(editinput)
+        litag.append(editinput)
+        console.log(divtt)
     }
 })
 
@@ -105,42 +89,34 @@ list.addEventListener('click', (e) => {
 
 // let task = document.getElementsByTagName("li")
 list.addEventListener('click', (e) => {
+    console.log(e.target)
     if (e.target.tagName === "LI") {
         e.target.classList.toggle("midlinetext")
-        // console.log(e.target.innerHTML)
+        
         let checktoggle = e.target.previousElementSibling;
         checktoggle.checked = !checktoggle.checked;
         let a = checktoggle.checked;
+        let chckbkgrnd = e.target.parentElement.parentElement
         if (a) {
-            list.firstElementChild.style.background = "#877052"
+            chckbkgrnd.style.background = "#877052"
         } else {
-            list.firstElementChild.style.background = "burlywood"
+            chckbkgrnd.style.background = "burlywood"
         }
 
     } else if (e.target.tagName === "INPUT") {
         e.target.nextElementSibling.classList.toggle("midlinetext")
-
+         let chckbkgrnd = e.target.parentElement.parentElement
         let a = e.target.checked;
         if (a) {
-            list.firstElementChild.style.background = "#877052"
+            chckbkgrnd.style.background = "#877052"
         } else {
-            list.firstElementChild.style.background = "burlywood"
+            chckbkgrnd.style.background = "burlywood"
         }
     }
 })
 
 
 
-// task.addEventListener("click", ()=>{
-//     task.classList.add('midline')
-// })
-
-// taskk.addEventListener("click",(e)=>{
-//     e.target.classList.add('midline')
-// })
-
-
-// list.innerHTML = list.innerHTML +" <li>rhfuiah</li>"
 
 
 // -----all dlt button----------
