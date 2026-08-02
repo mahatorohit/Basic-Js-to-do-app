@@ -77,8 +77,18 @@ list.addEventListener('click', (e) => {
         let editinput = document.createElement("input") 
         editinput.type = "text"
         editinput.value = litext
+        editinput.setAttribute("class", "editinput")
         litag.append(editinput)
-        console.log(divtt)
+        editinput.focus()
+        editinput.select()
+        editinput.addEventListener("keydown", function (e){
+            if (e.key === "Enter"){
+                let editvalue = editinput.value
+                editinput.remove()
+                litag.textContent = editvalue
+
+            }
+        })
     }
 })
 
