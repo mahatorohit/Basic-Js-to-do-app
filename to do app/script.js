@@ -52,7 +52,7 @@ list.addEventListener('click', (e) => {
     if (e.target.className === "deletebtn") {
 
         let a = e.target.parentElement.previousElementSibling.innerText
-        console.log(a)
+        
         localStorage.removeItem(a)
         let target = e.target.parentElement.parentElement
         target.remove()
@@ -84,7 +84,7 @@ list.addEventListener('click', (e) => {
         editinput.addEventListener("keydown", function (e){
             if (e.key === "Enter"){
                 let editvalue = editinput.value
-                editinput.remove()
+                editinput.removeAttribute("class")
                 litag.textContent = editvalue
 
             }
@@ -99,9 +99,10 @@ list.addEventListener('click', (e) => {
 
 // let task = document.getElementsByTagName("li")
 list.addEventListener('click', (e) => {
-    console.log(e.target)
+   
     if (e.target.tagName === "LI") {
         e.target.classList.toggle("midlinetext")
+        e.target.classList.add("todotxt")
         
         let checktoggle = e.target.previousElementSibling;
         checktoggle.checked = !checktoggle.checked;
@@ -115,6 +116,8 @@ list.addEventListener('click', (e) => {
 
     } else if (e.target.tagName === "INPUT") {
         e.target.nextElementSibling.classList.toggle("midlinetext")
+        e.target.nextElementSibling.classList.add("todotxt")
+        
          let chckbkgrnd = e.target.parentElement.parentElement
         let a = e.target.checked;
         if (a) {
@@ -132,7 +135,7 @@ list.addEventListener('click', (e) => {
 // -----all dlt button----------
 
 let alldlt = document.getElementById("aldlt")
-console.log(alldlt)
+
 
 alldlt.addEventListener('click', () => {
     let aresure = confirm("Are you sure, you want to delete all")
